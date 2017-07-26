@@ -93,10 +93,27 @@ filetype plugin indent on
 	set cursorline
 	set cursorcolumn
 	set hlsearch
-set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
-set nowrap
+"set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
+    set guifont=YaHei\ Consolas\ Hybrid\ 11.5
+    set nowrap
+    let g:Powerline_colorscheme='solarized256'
+    
+    syntax enable
+    syntax on
+    syntax keyword cppSTLtype initializer_list
+"set nowrap
+filetype indent on
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
-
+    let g:indent_guides_enable_on_vim_startup=1
+    let g:indent_guides_start_level=2
+    let g:indent_guides_guide_size=1
+    :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+    set foldmethod=syntax
+    set nofoldenable
 
 
 
