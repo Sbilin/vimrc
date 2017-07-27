@@ -1,7 +1,8 @@
 
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-	let mapleader=";"
+    let mapleader=";"
+    let g:mapleader=";"
 
 "Open filetype detected
 
@@ -72,9 +73,8 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
-Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'derekwyatt/vim-protodef'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gcmt/wildfire.vim'
@@ -82,6 +82,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'suan/vim-instant-markdown'
 " 插件列表结束
+
 call vundle#end()
 filetype plugin indent on
 
@@ -114,6 +115,56 @@ set softtabstop=4
     :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
     set foldmethod=syntax
     set nofoldenable
+let g:ctrlsf_ackprg = 'ack'
+"let g:ctrlsf_ignore_dir
+let g:ctrlsf_default_view_mode = 'compact'
+nnoremap <C-f> :CtrlSF<Space>
+set nocompatible
+let tagbar_left=1
+nnoremap <Leader>ilt :TagbarToggle<CR> 
+let tagbar_width=32 
+let g:tagbar_compact=1
+let g:tagbar_type_cpp = {
+    \ 'kinds' : [
+         \ 'c:classes:0:1',
+         \ 'd:macros:0:1',
+         \ 'e:enumerators:0:0', 
+         \ 'f:functions:0:1',
+         \ 'g:enumeration:0:1',
+         \ 'l:local:0:1',
+         \ 'm:members:0:1',
+         \ 'n:namespaces:0:1',
+         \ 'p:functions_prototypes:0:1',
+         \ 's:structs:0:1',
+         \ 't:typedefs:0:1',
+         \ 'u:unions:0:1',
+         \ 'v:global:0:1',
+         \ 'x:external:0:1'
+     \ ],
+     \ 'sro'        : '::',
+     \ 'kind2scope' : {
+         \ 'g' : 'enum',
+         \ 'n' : 'namespace',
+         \ 'c' : 'class',
+         \ 's' : 'struct',
+         \ 'u' : 'union'
+     \ },
+     \ 'scope2kind' : {
+         \ 'enum'      : 'g',
+         \ 'namespace' : 'n',
+         \ 'class'     : 'c',
+         \ 'struct'    : 's',
+         \ 'union'     : 'u'
+     \ }
+\ }
+:set tags+=~/data/tags
+nmap <Leader>tn :tnext<CR>
+nmap <Leader>tp :tprevious<CR>
+let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
+nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
 
-
+let g:ctrlsf_default_view_mode = 'normal'
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_skip_key='<S-k>'
 
